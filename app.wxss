@@ -1,10 +1,21 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+
+.page {
+  --ublack: #425066;
+  --ublack-7: rgba(66, 80, 102, .7);
+  --ublack-5: rgba(66, 80, 102, .5);
+  --ublack-2: rgba(66, 80, 102, .2);
+  --ltblue: rgba(34, 152, 212, 1);
+  --ltblue-2: rgba(34, 152, 212, .2);
+  --ltblue-25: rgba(34, 152, 212, .25);
+  --ltgreen: rgba(50, 221, 108, 1);
+  --ltgreen-2: rgba(50, 221, 108, .2);
+  --ltgreen-25: rgba(50, 221, 108, .25);
+  --dkgreen: rgba(91, 125, 103, 1);
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+}

@@ -1,23 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="page welcome">
+  <image class="welcome-img w-main" src="../../assets/welcome_main.svg" mode="widthFix" />
+  <image class="welcome-img w-l1" src="../../assets/welcome_l1.svg" mode="widthFix" />
+  <image class="welcome-img w-l2" src="../../assets/welcome_l2.svg" mode="widthFix" />
+  <image class="welcome-img w-l3" src="../../assets/welcome_l3.svg" mode="widthFix" />
+  <image class="welcome-img w-l4" src="../../assets/welcome_l4.svg" mode="widthFix" />
+  <image class="welcome-title" src="../../assets/welcome_title.svg" mode="widthFix" />
+  <view class="start-button">开始填写</view>
+  <view class="warning">
+    <image class="icon" src="../../assets/icon_index_info.svg" mode="widthFix" />
+    <span>开始填写即表示同意患者隐私保护的一切行为。流行病学调查目的在于分析病例传染源、发病和就诊情况及临床特征，用于研究疾病和各类因素的相关性之方法学，所采集数据不会透露患者隐私信息及另做他用。</span>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+</view>
+
+<view class="copy">
+  <p class="tx">昆明医科大学第二附属医院 [泌尿外科] 版权所有</p>
+  <p class="tx">copyrights ©2023 All rights reserved.</p>
 </view>
