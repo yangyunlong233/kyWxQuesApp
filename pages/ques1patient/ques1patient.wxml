@@ -7,7 +7,7 @@
   <!-- title -->
   <view class="ques-title">
     <image class="icon" src="/assets/icon_ques_personal.svg" mode="widthFix" />
-    <text class="tt">病患基本信息</text>
+    <text class="tt">患者基本信息</text>
   </view>
   <!-- Form -->
   <view class="form-el form-input"><!-- form -->
@@ -23,7 +23,7 @@
     <radio-group class="form-radio-group" bindchange="bind_gender_change">
       <label wx:for="{{genderOptions}}" wx:key="index">
         <view class="ra">
-          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+          <radio value="{{item}}" checked="{{item == patientGender}}"/>
         </view>
         <view class="tx">{{item}}</view>
       </label>
@@ -81,7 +81,7 @@
     <radio-group class="form-radio-group" bindchange="bind_symptom_change">
       <label wx:for="{{symptomOptions}}" wx:key="index">
         <view class="ra">
-          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+          <radio value="{{item}}" checked="{{item == patientSymptom}}"/>
         </view>
         <view class="tx">{{item}}</view>
       </label>
@@ -92,7 +92,7 @@
     <radio-group class="form-radio-group" bindchange="bind_illness_change">
       <label wx:for="{{illnessOptions}}" wx:key="index">
         <view class="ra">
-          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+          <radio value="{{item}}" checked="{{item == patientIllness}}"/>
         </view>
         <view class="tx">{{item}}</view>
       </label>

@@ -4,6 +4,7 @@ App({
 
   },
   globalData: {
-    patientData: null
+    patientData: null,
+    familyData: null
   }
 })

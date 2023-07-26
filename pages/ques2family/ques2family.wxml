@@ -1,0 +1,67 @@
+<!--pages/ques2family/ques2family.wxml-->
+<view class="page form-page">
+  <!-- toast component -->
+  <toast id="toastCP"></toast>
+  <!-- backgroud -->
+  <image class="ques-bg" src="../../assets/ques_bg.svg" mode="widthFix" />
+  <!-- title -->
+  <view class="ques-title">
+    <image class="icon" src="/assets/icon_ques_family.svg" mode="widthFix" />
+    <text class="tt">患者家族史信息</text>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">一级亲属（父母、兄弟姐妹、儿子女儿）是否患有膀胱癌、输尿管癌、肾盂癌？</label>
+    <radio-group class="form-radio-group" bindchange="bind_f_Lv1_illness_history_change">
+      <label wx:for="{{illnessOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == familyLv1IllnessHistory}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">二级亲属（叔、伯、姑、舅、姨、祖父母、外祖父母）是否患有膀胱癌、输尿管癌、肾盂癌？</label>
+    <radio-group class="form-radio-group" bindchange="bind_f_Lv2_illness_history_change">
+      <label wx:for="{{illnessOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == familyLv2IllnessHistory}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">一级亲属和二级亲属是否患有其他恶性肿瘤？</label>
+    <radio-group class="form-radio-group" bindchange="bind_f_other_illness_change">
+      <label wx:for="{{illnessOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == familyOtherIllness}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+    <view class="form-inner-input" wx:if="{{familyOtherIllness == '是'}}">
+      <label class="tt">恶性肿瘤名</label>
+      <input class="input" type="text" model:value="{{familyOtherIllnessName}}" placeholder="输入所患恶性肿瘤病名" bindinput="input_change_fallback"/>
+    </view>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">本人是否同时合并或既往患其他恶性肿瘤？</label>
+    <radio-group class="form-radio-group" bindchange="bind_p_other_illness_change">
+      <label wx:for="{{illnessOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == patientOtherIllness}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+    <view class="form-inner-input" wx:if="{{patientOtherIllness == '是'}}">
+      <label class="tt">恶性肿瘤名</label>
+      <input class="input" type="text" model:value="{{patientOtherIllnessName}}" placeholder="输入所患恶性肿瘤病名" bindinput="input_change_fallback"/>
+    </view>
+  </view>
+  <!-- 验证表单 下一步 -->
+  <view class="verify-next-button" data-topath="ques3smoke" bindtap="verify_to_next">下一页</view>
+  <view class="save-prev-button" data-topath="ques1patient" bindtap="save_to_prev">上一页</view>
+</view>

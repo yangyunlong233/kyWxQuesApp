@@ -1,6 +1,6 @@
 {
   "navigationBarBackgroundColor": "#2298D4",
-  "navigationBarTitleText": "患者信息",
+  "navigationBarTitleText": "患者家族史",
   "usingComponents": {
     "toast": "/components/toast/toast"
   }

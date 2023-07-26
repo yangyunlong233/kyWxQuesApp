@@ -125,7 +125,7 @@ Page({
     })
   },
   //! 验证填写并且下一步
-  verify_to_next: function () {
+  verify_to_next: function (e) {
     if (!this.data.patientName) {
       return this.toastCP.toast_show('请填写患者姓名')
     }
@@ -168,10 +168,13 @@ Page({
     _patientData.patientRegionDetail = this.data.patientRegionDetail
     _patientData.patientSymptom = this.data.patientSymptom
     _patientData.patientIllness = this.data.patientIllness
-    console.log(_patientData)
+    // console.log(_patientData)
     // 患者信息存到全局数据中
     app.globalData.patientData = _patientData
     // console.log('app.globalData.patientData', app.globalData.patientData)
+    wx.navigateTo({
+      url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
+    })
   },
   // input 回调函数
   input_change_fallback: function () {},
@@ -184,6 +187,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
+    //! 获取toast组件
     this.toastCP = this.selectComponent('#toastCP')
     //! 默认值填充
     this.setData({
@@ -216,4 +220,4 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {},
-});
+})

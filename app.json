@@ -1,10 +1,11 @@
 {
     "pages": [
+        "pages/ques2family/ques2family",
         "pages/index/index",
-        "pages/ques1patient/ques1patient"
+        "pages/ques1patient/ques1patient",
+        "pages/ques3smoke/ques3smoke"
     ],
-    "window": {
-    },
+    "window": {},
     "lazyCodeLoading": "requiredComponents",
     "style": "v2",
     "sitemapLocation": "sitemap.json"
