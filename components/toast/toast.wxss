@@ -1,0 +1,25 @@
+/* components/toast/toast.wxss */
+.toast-layout {
+  position: fixed;
+  z-index: 9999;
+  width: calc(100vw - 10vw);
+  padding: 1rem 5vw;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(255, 117, 117, .5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1rpx solid rgb(255, 117, 117, .6);
+  color: #FFF;
+  display: flex;
+  flex-flow: row nowrap;
+  transition: all .5s;
+}
+
+.toast-layout .icon {
+  position: relative;
+  top: .2rem;
+  display: block;
+  margin-right: .5rem;
+  height: 1rem;
+}

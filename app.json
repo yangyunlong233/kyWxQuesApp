@@ -1,11 +1,11 @@
 {
-  "pages":[
-    "pages/index/index"
-  ],
-  "window":{
-    "navigationStyle": "custom"
-  },
-  "lazyCodeLoading": "requiredComponents",
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/ques1patient/ques1patient"
+    ],
+    "window": {
+    },
+    "lazyCodeLoading": "requiredComponents",
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

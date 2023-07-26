@@ -60,7 +60,7 @@
   position: relative;
   z-index: 2;
   width: 70vw;
-  margin: 15vh auto 0;
+  margin: 13vh auto 0;
   padding: 1rem 0;
   border-radius: .8rem;
   background-color: var(--ltblue);
@@ -78,7 +78,7 @@
   font-size: .75rem;
   text-align: justify;
   background-color: var(--ltgreen-2);
-  border: 1px solid var(--ltgreen-25);
+  border: 1rpx solid var(--ltgreen-25);
   border-radius: .4rem;
   color: var(--dkgreen);
 }
@@ -91,13 +91,10 @@
 
 /* copy */
 .copy {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   z-index: 2;
   width: 70vw;
-  margin: 0 0 3vh;
+  margin: 2vh auto 3vh;
   text-align: center;
 }
 

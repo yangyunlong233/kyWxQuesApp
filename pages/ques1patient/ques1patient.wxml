@@ -1,0 +1,103 @@
+<!--pages/ques1patient/ques1patient.wxml-->
+<view class="page form-page">
+  <!-- toast component -->
+  <toast id="toastCP"></toast>
+  <!-- backgroud -->
+  <image class="ques-bg" src="../../assets/ques_bg.svg" mode="widthFix" />
+  <!-- title -->
+  <view class="ques-title">
+    <image class="icon" src="/assets/icon_ques_personal.svg" mode="widthFix" />
+    <text class="tt">病患基本信息</text>
+  </view>
+  <!-- Form -->
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">患者姓名</label>
+    <input class="input" type="text" model:value="{{patientName}}" placeholder="输入患者姓名" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">身份证号</label>
+    <input class="input" type="text" model:value="{{patientIDCard}}" placeholder="输入患者身份证号" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">患者性别</label>
+    <radio-group class="form-radio-group" bindchange="bind_gender_change">
+      <label wx:for="{{genderOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">年龄</label>
+    <input class="input" type="number" model:value="{{patientAge}}" placeholder="输入患者年龄" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">手机号</label>
+    <input class="input" type="number" model:value="{{patientMobile}}" placeholder="输入患者身份证号" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">就诊医院</label>
+    <input class="input" type="text" model:value="{{hospitalName}}" placeholder="医院名称" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">登记号</label>
+    <input class="input" type="number" model:value="{{hospitalNo}}" placeholder="医院住院号或门诊号" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-input form-select"><!-- form -->
+    <label class="tt">患者职业</label>
+    <picker range="{{professionOptions}}" bindchange="bind_profession_change" value="{{patientProfession}}">
+      <view class="picker">
+          {{patientProfession?patientProfession:'请选择职业'}}
+      </view>
+    </picker>
+    <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
+  </view>
+  <view class="form-el form-input form-select"><!-- form -->
+    <label class="tt">患者民族</label>
+    <picker range="{{nationOptions}}" bindchange="bind_nation_change" value="{{patientNation}}">
+      <view class="picker">
+          {{patientNation}}
+      </view>
+    </picker>
+    <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
+  </view>
+  <view class="form-el form-input form-select"><!-- form -->
+    <label class="tt">居住地</label>
+    <picker mode="region" bindchange="bind_region_change" value="{{patientRegion}}">
+      <view class="picker">
+          {{patientRegion[0]}} / {{patientRegion[1]}} / {{patientRegion[2]}}
+      </view>
+    </picker>
+    <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
+  </view>
+  <view class="form-el form-input"><!-- form -->
+    <label class="tt">街道/镇</label>
+    <input class="input" type="text" model:value="{{patientRegionDetail}}" placeholder="居住地详细街道或村镇" bindinput="input_change_fallback"/>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">目前最明显症状</label>
+    <radio-group class="form-radio-group" bindchange="bind_symptom_change">
+      <label wx:for="{{symptomOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">目前最怀疑何种疾病</label>
+    <radio-group class="form-radio-group" bindchange="bind_illness_change">
+      <label wx:for="{{illnessOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{index == 0 ? true : false}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <!-- 验证表单 下一步 -->
+  <view class="verify-next-button" data-topath="ques2family" bindtap="verify_to_next">下一页</view>
+</view>

@@ -1,6 +1,7 @@
 /**app.wxss**/
 
 .page {
+  --tblack: #121720;
   --ublack: #425066;
   --ublack-7: rgba(66, 80, 102, .7);
   --ublack-5: rgba(66, 80, 102, .5);
@@ -18,4 +19,130 @@
   position: relative;
   z-index: 2;
   width: 100vw;
+}
+
+.ques-bg {
+  position: fixed;
+  z-index: 1;
+  width: 70vw;
+  top: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.ques-title {
+  position: relative;
+  z-index: 2;
+  width: 81vw;
+  margin: 3vh auto;
+  padding-left: 5vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.ques-title .icon {
+  width: 1.2rem;
+  margin-right: .5rem;
+  opacity: .5;
+}
+.ques-title .tt {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--ublack);
+}
+
+/** FORM */
+.form-el {
+  position: relative;
+  z-index: 2;
+  width: calc(86vw - 6vw - 2px);
+  padding: 2.3vh 3vw;
+  border-radius: .5rem;
+  margin: 3vh auto;
+  background-color: rgba(240,240,240, .2);
+  border: 1rpx solid rgba(240,240,240, .8);
+  backdrop-filter: blur(.2rem);
+}
+
+.form-input {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.form-input .tt {
+  display: block;
+  font-size: .85rem;
+  width: 4.5rem;
+  color: var(--ublack);
+}
+.form-input .input {
+  display: block;
+  font-size: 1rem;
+  color: var(--tblack);
+}
+
+.form-select picker {
+  flex-grow: 1;
+}
+.form-select .icon {
+  position: relative;
+  top: .1rem;
+  display: block;
+  width: 1rem;
+  margin-left: .5rem;
+}
+
+.form-radio {
+  display: block;
+}
+.form-radio .tt {
+  display: block;
+  padding-bottom: 2vh;
+  border-bottom: 1rpx solid rgba(235,235,235, 1);
+  font-size: .85rem;
+  color: var(--ublack);
+}
+.form-radio-group {
+  display: flex;
+  flex-flow: row wrap;
+}
+.form-radio-group label {
+  margin-top: 2vh;
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.form-radio-group label .ra {
+  margin-right: .3rem;
+}
+.form-radio-group label .tx {
+  font-size: .95rem;
+  color: var(--tblack);
+}
+
+/* 单选按钮样式*/
+radio .wx-radio-input {
+  width: 37rpx;
+  height: 37rpx;
+  border: 1rpx solid var(--ublack-5);/* 外圈边框，默认灰色，即未选中状态*/
+  border-radius: 50%;
+  background: none;
+}
+
+
+.form-page {
+  padding-bottom: 5vh;
+}
+
+.verify-next-button {
+  width: 70vw;
+  margin: 5vh auto 3vh;
+  padding: 2.6vh 0;
+  border-radius: .8rem;
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: var(--ltblue);
+  color: #FFF;
 }

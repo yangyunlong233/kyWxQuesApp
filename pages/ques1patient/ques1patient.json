@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#2298D4",
+  "navigationBarTitleText": "TURP预测",
+  "usingComponents": {
+    "toast": "/components/toast/toast"
+  }
+}

@@ -1,18 +1,21 @@
 <!--index.wxml-->
 <view class="page welcome">
+  <!-- 标题及动画元素 -->
   <image class="welcome-img w-main" src="../../assets/welcome_main.svg" mode="widthFix" />
   <image class="welcome-img w-l1" src="../../assets/welcome_l1.svg" mode="widthFix" />
   <image class="welcome-img w-l2" src="../../assets/welcome_l2.svg" mode="widthFix" />
   <image class="welcome-img w-l3" src="../../assets/welcome_l3.svg" mode="widthFix" />
   <image class="welcome-img w-l4" src="../../assets/welcome_l4.svg" mode="widthFix" />
   <image class="welcome-title" src="../../assets/welcome_title.svg" mode="widthFix" />
-  <view class="start-button">开始填写</view>
+  <!-- 开始按钮 -->
+  <view class="start-button" bindtap="start_to_ques">开始填写</view>
+  <!-- 警告信息 -->
   <view class="warning">
     <image class="icon" src="../../assets/icon_index_info.svg" mode="widthFix" />
     <span>开始填写即表示同意患者隐私保护的一切行为。流行病学调查目的在于分析病例传染源、发病和就诊情况及临床特征，用于研究疾病和各类因素的相关性之方法学，所采集数据不会透露患者隐私信息及另做他用。</span>
   </view>
 </view>
-
+<!-- 版权 -->
 <view class="copy">
   <p class="tx">昆明医科大学第二附属医院 [泌尿外科] 版权所有</p>
   <p class="tx">copyrights ©2023 All rights reserved.</p>
