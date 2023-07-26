@@ -1,2 +1,105 @@
 <!--pages/ques3smoke/ques3smoke.wxml-->
-<text>pages/ques3smoke/ques3smoke.wxml</text>
+<view class="page form-page">
+  <!-- toast component -->
+  <toast id="toastCP"></toast>
+  <!-- backgroud -->
+  <image class="ques-bg" src="../../assets/ques_bg.svg" mode="widthFix" />
+  <!-- title -->
+  <view class="ques-title">
+    <image class="icon" src="/assets/icon_ques_family.svg" mode="widthFix" />
+    <text class="tt">患者吸烟史信息</text>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">吸烟情况</label>
+    <radio-group class="form-radio-group" bindchange="bind_smoke_status_change">
+      <label wx:for="{{statusOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == smokeStatus}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+    <view class="form-inner-input" wx:if="{{smokeStatus == '以前吸已经戒烟' || smokeStatus == '现在正在吸烟'}}">
+      <label class="tt">每天几包烟</label>
+      <input class="input" type="number" model:value="{{smokeCount}}" placeholder="输入吸烟量" bindinput="input_change_fallback"/>
+    </view>
+    <view class="form-inner-input" wx:if="{{smokeStatus == '以前吸已经戒烟'}}">
+      <label class="tt">戒烟几个月</label>
+      <input class="input" type="number" model:value="{{smokeCut}}" placeholder="戒烟时长" bindinput="input_change_fallback"/>
+    </view>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">是否会长期接触工业化学产品？（比如芳香胺、多环芳烃、氯化碳氢化合物）</label>
+    <radio-group class="form-radio-group" bindchange="bind_danger_touch_change">
+      <label wx:for="{{tfOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == dangerTouch}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">是否反复发生尿路感染？</label>
+    <radio-group class="form-radio-group" bindchange="bind_re_infection_change">
+      <label wx:for="{{tfOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == reInfection}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">是否长期服用中药？</label>
+    <radio-group class="form-radio-group" bindchange="bind_chinese_medic_change">
+      <label wx:for="{{tfOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == chineseMedic}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">食用鱼腥草（折耳根）次数</label>
+    <radio-group class="form-radio-group" bindchange="bind_edible_count_change">
+      <label wx:for="{{edibleOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == edibleCount}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">如果您确诊了膀胱癌，需要切除您的膀胱并改变排尿方式，现在有新的治疗方案可以保留膀胱，而且不会降低生存时间、不会增加肿瘤进展和转移风险，但是会增加治疗费用、增加住院次数、需要做放疗和化疗并可能带来放疗和化疗相关的风险，您会选择哪种方案？</label>
+    <radio-group class="form-radio-group" bindchange="bind_cure_1_change">
+      <label wx:for="{{cure1Options}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == cure1}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">如果您确诊了输尿管癌或肾盂癌，需要切除您的一侧肾脏和输尿管，现在有新的治疗方案可以保留肾脏和输尿管，但存在肿瘤进展和转移的风险，并且会增加治疗费用、增加住院次数，您会选择哪种方案？</label>
+    <radio-group class="form-radio-group" bindchange="bind_cure_2_change">
+      <label wx:for="{{cure2Options}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == cure2}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+</view>

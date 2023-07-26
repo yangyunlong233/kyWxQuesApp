@@ -1,6 +1,6 @@
 {
   "navigationBarBackgroundColor": "#2298D4",
-  "navigationBarTitleText": "吸烟史",
+  "navigationBarTitleText": "患者吸烟史",
   "usingComponents": {
     "toast": "/components/toast/toast"
   }
