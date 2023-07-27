@@ -12,5 +12,11 @@ Page({
     })
   },
   onLoad() {
+    setTimeout(() => {
+      app.globalData.patientData = null
+      app.globalData.familyData = null
+      app.globalData.smokeData = null
+      app.globalData.cureData = null
+    }, 1000)
   },
 })

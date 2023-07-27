@@ -1,0 +1,40 @@
+<!--pages/ques4cure/ques4cure.wxml-->
+<view class="page form-page">
+  <!-- toast component -->
+  <toast id="toastCP"></toast>
+  <!-- backgroud -->
+  <image class="ques-bg" src="../../assets/ques_bg.svg" mode="widthFix" />
+  <!-- title -->
+  <view class="ques-title">
+    <image class="icon" src="/assets/icon_ques_cure.svg" mode="widthFix" />
+    <text class="tt">治疗方案</text>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">如果您确诊了膀胱癌，需要切除您的膀胱并改变排尿方式，现在有新的治疗方案可以保留膀胱，而且不会降低生存时间、不会增加肿瘤进展和转移风险，但是会增加治疗费用、增加住院次数、需要做放疗和化疗并可能带来放疗和化疗相关的风险，您会选择哪种方案？</label>
+    <radio-group class="form-radio-group" bindchange="bind_cure_1_change">
+      <label wx:for="{{cure1Options}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == cure1}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">如果您确诊了输尿管癌或肾盂癌，需要切除您的一侧肾脏和输尿管，现在有新的治疗方案可以保留肾脏和输尿管，但存在肿瘤进展和转移的风险，并且会增加治疗费用、增加住院次数，您会选择哪种方案？</label>
+    <radio-group class="form-radio-group" bindchange="bind_cure_2_change">
+      <label wx:for="{{cure2Options}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == cure2}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <!-- 验证表单 下一步 -->
+  <view class="verify-next-button" data-topath="finished" bindtap="submit_to_finished">完成并提交</view>
+  <view class="save-prev-button" data-topath="ques3smoke" bindtap="save_to_prev">上一页</view>
+</view>

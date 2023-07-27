@@ -5,6 +5,8 @@ App({
   },
   globalData: {
     patientData: null,
-    familyData: null
+    familyData: null,
+    smokeData: null,
+    cureData: null
   }
 })

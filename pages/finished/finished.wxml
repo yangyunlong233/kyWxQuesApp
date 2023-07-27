@@ -1,0 +1,7 @@
+<!--pages/finished/finished.wxml-->
+<view class="page finished-page">
+  <image class="finished-img" src="/assets/finished.svg" mode="widthFix" />
+  <image class="finished-tx" src="/assets/finished_tx.svg" mode="widthFix" />
+  <!-- 验证表单 下一步 -->
+  <view class="verify-next-button" data-topath="index" bindtap="back_to_index">返回</view>
+</view>

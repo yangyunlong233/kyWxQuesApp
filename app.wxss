@@ -78,6 +78,7 @@
 }
 .form-input .input {
   display: block;
+  flex-grow: 1;
   font-size: 1rem;
   color: var(--tblack);
 }
@@ -155,7 +156,6 @@ radio .wx-radio-input {
   border-radius: 50%;
   background: none;
 }
-
 
 .form-page {
   padding-bottom: 5vh;

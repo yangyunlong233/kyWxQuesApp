@@ -16,7 +16,7 @@
   </view>
   <view class="form-el form-input"><!-- form -->
     <label class="tt">身份证号</label>
-    <input class="input" type="text" model:value="{{patientIDCard}}" placeholder="输入患者身份证号" bindinput="input_change_fallback"/>
+    <input class="input" type="idcard" model:value="{{patientIDCard}}" placeholder="输入患者身份证号" bindinput="input_change_fallback"/>
   </view>
   <view class="form-el form-radio"><!-- form -->
     <label class="tt">患者性别</label>

@@ -47,6 +47,9 @@ Page({
       return this.toastCP.toast_show('请填写本人历史所患恶性肿瘤病名')
     }
     this.save_to_global_handle()
+    wx.navigateTo({
+      url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
+    })
   },
   //! 返回上一页
   save_to_prev: function (e) {
@@ -66,6 +69,8 @@ Page({
     _d.patientOtherIllnessName = this.data.patientOtherIllnessName
     app.globalData.familyData = _d
   },
+  // input 回调函数
+  input_change_fallback: function () {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -78,13 +83,6 @@ Page({
   onReady() {
     //! 获取toast组件
     this.toastCP = this.selectComponent('#toastCP')
-    //! 初始化数据
-    this.setData({
-      familyLv1IllnessHistory: this.data.illnessOptions[0],
-      familyLv2IllnessHistory: this.data.illnessOptions[0],
-      familyOtherIllness: this.data.illnessOptions[0],
-      patientOtherIllness: this.data.illnessOptions[0],
-    })
     //! 全局数据拉取
     if (app.globalData.familyData != null) {
       // console.log('has')
@@ -95,6 +93,13 @@ Page({
         familyOtherIllnessName: app.globalData.familyData.familyOtherIllnessName,
         patientOtherIllness: app.globalData.familyData.patientOtherIllness,
         patientOtherIllnessName: app.globalData.familyData.patientOtherIllnessName,
+      })
+    } else { //! 初始化数据
+      this.setData({
+        familyLv1IllnessHistory: this.data.illnessOptions[0],
+        familyLv2IllnessHistory: this.data.illnessOptions[0],
+        familyOtherIllness: this.data.illnessOptions[0],
+        patientOtherIllness: this.data.illnessOptions[0],
       })
     }
   },

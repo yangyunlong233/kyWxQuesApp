@@ -6,13 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    patientName: '周树人',
-    patientIDCard: '530103198503333333',
+    patientName: '',
+    patientIDCard: '',
     patientGender: '',
-    patientAge: 32,
-    patientMobile: '18988288888',
+    patientAge: '',
+    patientMobile: '',
     hospitalName: '昆明医科大学第二附属医院',
-    hospitalNo: 203002034222,
+    hospitalNo: '',
     patientProfession: '',
     patientNation: '汉族',
     patientRegion: ['云南省', '昆明市', '五华区'], // 5.患者基础信息：地区
@@ -189,12 +189,6 @@ Page({
   onReady() {
     //! 获取toast组件
     this.toastCP = this.selectComponent('#toastCP')
-    //! 默认值填充
-    this.setData({
-      patientGender: this.data.genderOptions[0],
-      patientSymptom: this.data.symptomOptions[0],
-      patientIllness: this.data.illnessOptions[0]
-    })
     //! 是否有全局数据
     if (app.globalData.patientData != null) {
       // console.log('app.globalData.patientData', app.globalData.patientData)
@@ -212,6 +206,13 @@ Page({
         patientRegionDetail: app.globalData.patientData.patientRegionDetail,
         patientSymptom: app.globalData.patientData.patientSymptom,
         patientIllness: app.globalData.patientData.patientIllness,
+      })
+    } else {
+      //! 默认值填充
+      this.setData({
+        patientGender: this.data.genderOptions[0],
+        patientSymptom: this.data.symptomOptions[0],
+        patientIllness: this.data.illnessOptions[0]
       })
     }
   },

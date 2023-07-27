@@ -1,0 +1,21 @@
+/* pages/finished/finished.wxss */
+.finished-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #BAD8E7 0%, rgba(217, 217, 217, 0.00) 100%);
+}
+
+.finished-img {
+  display: block;
+  width: 70vw;
+  margin: 10vh auto 0;
+}
+
+.finished-tx {
+  display: block;
+  width: 30vw;
+  margin: 5vh auto 0;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#2298D4",
+  "navigationBarTitleText": "治疗方案",
+  "usingComponents": {
+    "toast": "/components/toast/toast"
+  }
+}
