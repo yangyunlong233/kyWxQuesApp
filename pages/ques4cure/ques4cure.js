@@ -27,9 +27,63 @@ Page({
   submit_to_finished: function (e) {
     this.save_to_global_handle()
     console.log('app.global', app.globalData)
-    wx.navigateTo({
-      url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
+    let _requestPersonal = {
+      patientName        : app.globalData.patientData.patientName,
+      patientIDCard      : app.globalData.patientData.patientIDCard,
+      patientGender      : app.globalData.patientData.patientGender,
+      patientAge         : app.globalData.patientData.patientAge,
+      patientMobile      : app.globalData.patientData.patientMobile,
+      hospitalName       : app.globalData.patientData.hospitalName,
+      hospitalNo         : app.globalData.patientData.hospitalNo,
+      patientProfession  : app.globalData.patientData.patientProfession,
+      patientNation      : app.globalData.patientData.patientNation,
+      patientRegion      : app.globalData.patientData.patientRegion,
+      patientRegionDetail: app.globalData.patientData.patientRegionDetail,
+      patientSymptom     : app.globalData.patientData.patientSymptom,
+      patientIllness     : app.globalData.patientData.patientIllness,
+    }
+    let _requestQues = {
+      family: {
+        familyLv1IllnessHistory: app.globalData.familyData.familyLv1IllnessHistory,
+        familyLv2IllnessHistory: app.globalData.familyData.familyLv2IllnessHistory,
+        familyOtherIllness     : app.globalData.familyData.familyOtherIllness,
+        familyOtherIllnessName : app.globalData.familyData.familyOtherIllnessName,
+        patientOtherIllness    : app.globalData.familyData.patientOtherIllness,
+        patientOtherIllnessName: app.globalData.familyData.patientOtherIllnessName,
+      },
+      smokeandothers: {
+        smokeStatus            : app.globalData.smokeData.smokeStatus,
+        smokeCount             : app.globalData.smokeData.smokeCount,
+        smokeCut               : app.globalData.smokeData.smokeCut,
+        dangerTouch            : app.globalData.smokeData.dangerTouch,
+        reInfection            : app.globalData.smokeData.reInfection,
+        chineseMedic           : app.globalData.smokeData.chineseMedic,
+        edibleCount            : app.globalData.smokeData.edibleCount,
+      },
+      cure: {
+        cure1                  : app.globalData.cureData.cure1,
+        cure2                  : app.globalData.cureData.cure2,
+      }
+    }
+    wx.request({
+      url: 'http://km2api.luoui.com/api/question/new',
+      method: 'POST',
+      data: {
+        uuid: app.globalData.patientData.patientIDCard,
+        askType: 'urine',
+        manInfo: JSON.stringify(_requestPersonal),
+        quesInfo: JSON.stringify(_requestQues),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success (res) {
+        console.log(res)
+      }
     })
+    // wx.navigateTo({
+    //   url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
+    // })
   },
   //! 完成并提交数据，跳转到完成页
   save_to_prev: function (e) {
