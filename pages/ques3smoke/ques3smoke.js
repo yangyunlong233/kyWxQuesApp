@@ -9,6 +9,12 @@ Page({
     smokeStatus: '',
     smokeCount: '',
     smokeCut: '',
+    smokeCountOptions: [
+      '<10支',
+      '10~20支',
+      '20~40支',
+      '>40支',
+    ],
     dangerTouch: '',
     reInfection: '',
     chineseMedic: '',
@@ -27,6 +33,17 @@ Page({
   bind_smoke_status_change: function (e) {
     this.setData({
       smokeStatus: e.detail.value
+    })
+    if (e.detail.value == '从来不吸烟') {
+      this.setData({
+        smokeCount: '',
+        smokeCut: '',
+      })
+    }
+  },
+  bind_smoke_count_change: function (e) {
+    this.setData({
+      smokeCount: e.detail.value
     })
   },
   //! 危险品接触选择事件

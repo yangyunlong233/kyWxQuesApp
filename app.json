@@ -6,6 +6,7 @@
         "pages/ques4cure/ques4cure",
         "pages/ques3smoke/ques3smoke",
         "pages/finished/finished"
+        
     ],
     "window": {},
     "lazyCodeLoading": "requiredComponents",

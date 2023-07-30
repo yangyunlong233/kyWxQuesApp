@@ -43,7 +43,7 @@
   </view>
   <view class="form-el form-input"><!-- form -->
     <label class="tt">登记号</label>
-    <input class="input" type="number" model:value="{{hospitalNo}}" placeholder="医院住院号或门诊号" bindinput="input_change_fallback"/>
+    <input class="input" type="number" model:value="{{hospitalNo}}" placeholder="医院登记号或住院号" bindinput="input_change_fallback"/>
   </view>
   <view class="form-el form-input form-select"><!-- form -->
     <label class="tt">患者职业</label>
@@ -63,19 +63,78 @@
     </picker>
     <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
   </view>
-  <view class="form-el form-input form-select"><!-- form -->
-    <label class="tt">居住地</label>
+  <view class="form-el form-input form-select form-select-has-inner"><!-- form -->
+    <label class="tt">长期居住地</label>
     <picker mode="region" bindchange="bind_region_change" value="{{patientRegion}}">
       <view class="picker">
           {{patientRegion[0]}} / {{patientRegion[1]}} / {{patientRegion[2]}}
       </view>
     </picker>
     <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
+    <view class="form-inner-radio">
+      <radio-group class="form-radio-group" bindchange="bind_region_detail_change">
+        <label wx:for="{{regionDetailOptions}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == patientRegionDetail}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
   </view>
-  <view class="form-el form-input"><!-- form -->
-    <label class="tt">街道/镇</label>
-    <input class="input" type="text" model:value="{{patientRegionDetail}}" placeholder="居住地详细街道或村镇" bindinput="input_change_fallback"/>
+  <view class="form-el form-input form-select"><!-- form -->
+    <label class="tt">最高学历</label>
+    <picker range="{{educationOptions}}" bindchange="bind_education_change" value="{{patientEducation}}">
+      <view class="picker">
+          {{patientEducation?patientEducation:'请选择学历'}}
+      </view>
+    </picker>
+    <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
   </view>
+  <view class="form-el form-input form-select form-select-has-inner"><!-- form -->
+    <label class="tt long">家庭人均可支配收入（每年）</label>
+    <picker range="{{proofOptions}}" bindchange="bind_proof_change" value="{{patientProof}}">
+      <view class="picker">
+          {{patientProof?patientProof:'请选择可支配收入'}}
+      </view>
+    </picker>
+    <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
+    <label class="tt">是否存在超过6个月以上的泌尿结石病史</label>
+    <radio-group class="form-radio-group" bindchange="bind_lithiasis_change">
+      <label wx:for="{{lithiasisOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == patientLithiasis}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+    <view class="form-inner-radio" wx:if="{{patientLithiasis == '是'}}">
+      <label class="tt">结石病类型</label>
+      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type1_change">
+        <label wx:for="{{lithiasisType1Options}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == patientLithiasisType1}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="form-inner-radio" wx:if="{{patientLithiasis == '是'}}">
+      <label class="tt">治疗情况</label>
+      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type2_change">
+        <label wx:for="{{lithiasisType2Options}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == patientLithiasisType2}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
   <view class="form-el form-radio"><!-- form -->
     <label class="tt">目前最明显症状</label>
     <radio-group class="form-radio-group" bindchange="bind_symptom_change">

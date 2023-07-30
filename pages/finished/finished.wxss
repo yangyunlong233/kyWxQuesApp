@@ -19,3 +19,14 @@
   width: 30vw;
   margin: 5vh auto 0;
 }
+
+.official {
+  width: 70vw;
+  margin: 8vh auto 0;
+  text-align: center;
+}
+
+.official .tt {
+  font-size: .9rem;
+  color: #161823;
+}

@@ -4,4 +4,9 @@
   <image class="finished-tx" src="/assets/finished_tx.svg" mode="widthFix" />
   <!-- 验证表单 下一步 -->
   <view class="verify-next-button" data-topath="index" bindtap="back_to_index">返回</view>
+  <!-- official -->
+  <view class="official">
+    <view class="tt">关注公众号，了解尿路上皮癌最新资讯</view>
+    <official-account></official-account>
+  </view>
 </view>

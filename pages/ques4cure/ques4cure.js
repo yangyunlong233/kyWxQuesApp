@@ -28,19 +28,24 @@ Page({
     this.save_to_global_handle()
     console.log('app.global', app.globalData)
     let _requestPersonal = {
-      patientName        : app.globalData.patientData.patientName,
-      patientIDCard      : app.globalData.patientData.patientIDCard,
-      patientGender      : app.globalData.patientData.patientGender,
-      patientAge         : app.globalData.patientData.patientAge,
-      patientMobile      : app.globalData.patientData.patientMobile,
-      hospitalName       : app.globalData.patientData.hospitalName,
-      hospitalNo         : app.globalData.patientData.hospitalNo,
-      patientProfession  : app.globalData.patientData.patientProfession,
-      patientNation      : app.globalData.patientData.patientNation,
-      patientRegion      : app.globalData.patientData.patientRegion,
-      patientRegionDetail: app.globalData.patientData.patientRegionDetail,
-      patientSymptom     : app.globalData.patientData.patientSymptom,
-      patientIllness     : app.globalData.patientData.patientIllness,
+      patientName          : app.globalData.patientData.patientName,
+      patientIDCard        : app.globalData.patientData.patientIDCard,
+      patientGender        : app.globalData.patientData.patientGender,
+      patientAge           : app.globalData.patientData.patientAge,
+      patientMobile        : app.globalData.patientData.patientMobile,
+      hospitalName         : app.globalData.patientData.hospitalName,
+      hospitalNo           : app.globalData.patientData.hospitalNo,
+      patientProfession    : app.globalData.patientData.patientProfession,
+      patientNation        : app.globalData.patientData.patientNation,
+      patientRegion        : app.globalData.patientData.patientRegion,
+      patientRegionDetail  : app.globalData.patientData.patientRegionDetail,
+      patientEducation     : app.globalData.patientData.patientEducation,
+      patientProof         : app.globalData.patientData.patientProof,
+      patientLithiasis     : app.globalData.patientData.patientLithiasis,
+      patientLithiasisType1: app.globalData.patientData.patientLithiasisType1,
+      patientLithiasisType2: app.globalData.patientData.patientLithiasisType2,
+      patientSymptom       : app.globalData.patientData.patientSymptom,
+      patientIllness       : app.globalData.patientData.patientIllness,
     }
     let _requestQues = {
       family: {
@@ -66,7 +71,7 @@ Page({
       }
     }
     wx.request({
-      url: 'http://km2api.luoui.com/api/question/new',
+      url: 'https://km2api.luoui.com/api/question/new',
       method: 'POST',
       data: {
         uuid: app.globalData.patientData.patientIDCard,
@@ -81,9 +86,9 @@ Page({
         console.log(res)
       }
     })
-    // wx.navigateTo({
-    //   url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
-    // })
+    wx.navigateTo({
+      url: `../${e.currentTarget.dataset.topath}/${e.currentTarget.dataset.topath}`
+    })
   },
   //! 完成并提交数据，跳转到完成页
   save_to_prev: function (e) {

@@ -76,6 +76,13 @@
   width: 4.5rem;
   color: var(--ublack);
 }
+.form-input .tt.long {
+  display: block;
+  font-size: .85rem;
+  width: 100%;
+  padding-bottom: 2vh;
+  color: var(--ublack);
+}
 .form-input .input {
   display: block;
   flex-grow: 1;
@@ -122,6 +129,19 @@
 .form-radio-group label .tx {
   font-size: .95rem;
   color: var(--tblack);
+}
+
+.form-select-has-inner {
+  flex-flow: row wrap;
+}
+.form-select-has-inner .form-inner-radio {
+  flex-grow: 1;
+  width: 100%;
+}
+.form-inner-radio {
+  margin-top: 2vh;
+  padding-top: 2vh;
+  border-top: 1rpx solid rgba(235,235,235, 1);
 }
 
 .form-inner-input {

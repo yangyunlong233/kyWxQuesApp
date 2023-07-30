@@ -16,12 +16,17 @@ Page({
     patientProfession: '',
     patientNation: '汉族',
     patientRegion: ['云南省', '昆明市', '五华区'], // 5.患者基础信息：地区
-    patientRegionDetail: '',
+    patientRegionDetail: '城镇（县及县级以上城市区域）',
+    patientEducation: '',
+    patientProof: '',
+    patientLithiasis: '否',
+    patientLithiasisType1: '',
+    patientLithiasisType2: '',
     patientSymptom: '',
     patientIllness: '',
     genderOptions: ['男', '女'],
     professionOptions: [
-      '商业','行政','教师','医护','农民','园林','化肥或杀虫剂','科研','电子产品','纺织','制药','橡胶','油漆、染料或皮革生产','钢铁生产','矿产','交通','绘画','舞蹈','音乐','运动员'
+      "商业","行政","教师","医护","农民","园林","化肥或杀虫剂生产","科研","电子产品","纺织","制药","橡胶或皮革生产","油漆或染料生产","金属加工","矿产","机械维修或电工","房屋装修","理发师","司机","数字媒体","写作和绘画","舞蹈","音乐","运动员","其他"
     ],
     nationOptions: [
       '汉族',
@@ -81,6 +86,23 @@ Page({
       '珞巴族',
       '基诺族',
     ],
+    regionDetailOptions: [
+      '城镇（县及县级以上城市区域）',
+      '农村'
+    ],
+    educationOptions: [
+      "小学及以下","初中","高中","中专","大专","大学本科","硕士","博士"
+    ],
+    proofOptions: [
+      "<1万","1-3万","3-6万","6-9万","9-20万","20万以上"
+    ],
+    lithiasisOptions: ['否', '是'],
+    lithiasisType1Options: [
+      "肾结石","输尿管结石","膀胱结石","肾和输尿管结石","肾和膀胱结石","输尿管和膀胱结石","都存在"
+    ],
+    lithiasisType2Options: [
+      "结石经过手术治疗","结石未经过手术治疗"
+    ],
     symptomOptions: [
       '无症状', '血尿', '腰痛', '尿频尿急', '排尿困难', '尿痛', '盆腔疼痛', '骨痛'
     ],
@@ -110,6 +132,49 @@ Page({
   bind_region_change: function (e) {
     this.setData({
       patientRegion: e.detail.value
+    })
+  },
+  //! 村镇选择事件
+  bind_region_detail_change: function (e) {
+    this.setData({
+      patientRegionDetail: e.detail.value
+    })
+  },
+  //! 教育程度选择事件
+  bind_education_change: function (e) {
+    this.setData({
+      patientEducation: this.data.educationOptions[e.detail.value]
+    })
+  },
+  //! 收入选择事件
+  bind_proof_change: function (e) {
+    this.setData({
+      patientProof: this.data.proofOptions[e.detail.value]
+    })
+  },
+  //! 是否有结石病事件
+  bind_lithiasis_change: function (e) {
+    if (e.detail.value == '否') {
+      this.setData({
+        patientLithiasis: e.detail.value,
+        patientLithiasisType1: '',
+        patientLithiasisType2: '',
+      })
+    } else {
+      this.setData({
+        patientLithiasis: e.detail.value
+      })
+    }
+  },
+  //! 结石病子选项事件
+  bind_lithiasis_type1_change: function (e) {
+    this.setData({
+      patientLithiasisType1: e.detail.value
+    })
+  },
+  bind_lithiasis_type2_change: function (e) {
+    this.setData({
+      patientLithiasisType2: e.detail.value
     })
   },
   //! 症状选择事件
@@ -150,8 +215,14 @@ Page({
     if (!this.data.patientProfession) {
       return this.toastCP.toast_show('请选择患者职业')
     }
-    if (!this.data.patientRegionDetail) {
-      return this.toastCP.toast_show('请填写患者居住地详细街道或村镇')
+    if (!this.data.patientEducation) {
+      return this.toastCP.toast_show('请选择教育程度')
+    }
+    if (!this.data.patientProof) {
+      return this.toastCP.toast_show('请选择收入类型')
+    }
+    if (this.data.patientLithiasis == '是' && (!this.data.patientLithiasisType1 || !this.data.patientLithiasisType2)) {
+      return this.toastCP.toast_show('请选择结石病史情况')
     }
     // 组装患者信息
     let _patientData = {}
@@ -166,6 +237,11 @@ Page({
     _patientData.patientNation = this.data.patientNation
     _patientData.patientRegion = this.data.patientRegion
     _patientData.patientRegionDetail = this.data.patientRegionDetail
+    _patientData.patientEducation = this.data.patientEducation
+    _patientData.patientProof = this.data.patientProof
+    _patientData.patientLithiasis = this.data.patientLithiasis
+    _patientData.patientLithiasisType1 = this.data.patientLithiasisType1
+    _patientData.patientLithiasisType2 = this.data.patientLithiasisType2
     _patientData.patientSymptom = this.data.patientSymptom
     _patientData.patientIllness = this.data.patientIllness
     // console.log(_patientData)
@@ -204,6 +280,11 @@ Page({
         patientNation: app.globalData.patientData.patientNation,
         patientRegion: app.globalData.patientData.patientRegion,
         patientRegionDetail: app.globalData.patientData.patientRegionDetail,
+        patientEducation: app.globalData.patientData.patientEducation,
+        patientProof: app.globalData.patientData.patientProof,
+        patientLithiasis: app.globalData.patientData.patientLithiasis,
+        patientLithiasisType1: app.globalData.patientData.patientLithiasisType1,
+        patientLithiasisType2: app.globalData.patientData.patientLithiasisType2,
         patientSymptom: app.globalData.patientData.patientSymptom,
         patientIllness: app.globalData.patientData.patientIllness,
       })
