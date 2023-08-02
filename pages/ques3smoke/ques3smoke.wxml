@@ -62,6 +62,40 @@
   </view>
 
   <view class="form-el form-radio"><!-- form -->
+    <label class="tt">是否存在超过6个月以上的泌尿结石病史</label>
+    <radio-group class="form-radio-group" bindchange="bind_lithiasis_change">
+      <label wx:for="{{tfOptions}}" wx:key="index">
+        <view class="ra">
+          <radio value="{{item}}" checked="{{item == lithiasis}}"/>
+        </view>
+        <view class="tx">{{item}}</view>
+      </label>
+    </radio-group>
+    <view class="form-inner-radio" wx:if="{{lithiasis == '是'}}">
+      <label class="tt">结石病类型</label>
+      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type1_change">
+        <label wx:for="{{lithiasisType1Options}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == lithiasisType1}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="form-inner-radio" wx:if="{{lithiasis == '是'}}">
+      <label class="tt">治疗情况</label>
+      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type2_change">
+        <label wx:for="{{lithiasisType2Options}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == lithiasisType2}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="form-el form-radio"><!-- form -->
     <label class="tt">是否长期服用中药？</label>
     <radio-group class="form-radio-group" bindchange="bind_chinese_medic_change">
       <label wx:for="{{tfOptions}}" wx:key="index">

@@ -96,13 +96,6 @@ Page({
     proofOptions: [
       "<1万","1-3万","3-6万","6-9万","9-20万","20万以上"
     ],
-    lithiasisOptions: ['否', '是'],
-    lithiasisType1Options: [
-      "肾结石","输尿管结石","膀胱结石","肾和输尿管结石","肾和膀胱结石","输尿管和膀胱结石","都存在"
-    ],
-    lithiasisType2Options: [
-      "结石经过手术治疗","结石未经过手术治疗"
-    ],
     symptomOptions: [
       '无症状', '血尿', '腰痛', '尿频尿急', '排尿困难', '尿痛', '盆腔疼痛', '骨痛'
     ],
@@ -152,31 +145,6 @@ Page({
       patientProof: this.data.proofOptions[e.detail.value]
     })
   },
-  //! 是否有结石病事件
-  bind_lithiasis_change: function (e) {
-    if (e.detail.value == '否') {
-      this.setData({
-        patientLithiasis: e.detail.value,
-        patientLithiasisType1: '',
-        patientLithiasisType2: '',
-      })
-    } else {
-      this.setData({
-        patientLithiasis: e.detail.value
-      })
-    }
-  },
-  //! 结石病子选项事件
-  bind_lithiasis_type1_change: function (e) {
-    this.setData({
-      patientLithiasisType1: e.detail.value
-    })
-  },
-  bind_lithiasis_type2_change: function (e) {
-    this.setData({
-      patientLithiasisType2: e.detail.value
-    })
-  },
   //! 症状选择事件
   bind_symptom_change: function (e) {
     this.setData({
@@ -221,9 +189,6 @@ Page({
     if (!this.data.patientProof) {
       return this.toastCP.toast_show('请选择收入类型')
     }
-    if (this.data.patientLithiasis == '是' && (!this.data.patientLithiasisType1 || !this.data.patientLithiasisType2)) {
-      return this.toastCP.toast_show('请选择结石病史情况')
-    }
     // 组装患者信息
     let _patientData = {}
     _patientData.patientName = this.data.patientName
@@ -239,9 +204,6 @@ Page({
     _patientData.patientRegionDetail = this.data.patientRegionDetail
     _patientData.patientEducation = this.data.patientEducation
     _patientData.patientProof = this.data.patientProof
-    _patientData.patientLithiasis = this.data.patientLithiasis
-    _patientData.patientLithiasisType1 = this.data.patientLithiasisType1
-    _patientData.patientLithiasisType2 = this.data.patientLithiasisType2
     _patientData.patientSymptom = this.data.patientSymptom
     _patientData.patientIllness = this.data.patientIllness
     // console.log(_patientData)

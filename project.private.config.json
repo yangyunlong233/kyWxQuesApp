@@ -5,5 +5,18 @@
         "compileHotReLoad": true,
         "urlCheck": true
     },
-    "libVersion": "2.33.0"
+    "libVersion": "2.33.0",
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/ques3smoke/ques3smoke",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    }
 }

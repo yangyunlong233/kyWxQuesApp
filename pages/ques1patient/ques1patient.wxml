@@ -35,7 +35,7 @@
   </view>
   <view class="form-el form-input"><!-- form -->
     <label class="tt">手机号</label>
-    <input class="input" type="number" model:value="{{patientMobile}}" placeholder="输入患者身份证号" bindinput="input_change_fallback"/>
+    <input class="input" type="number" model:value="{{patientMobile}}" placeholder="输入患者手机号" bindinput="input_change_fallback"/>
   </view>
   <view class="form-el form-input"><!-- form -->
     <label class="tt">就诊医院</label>
@@ -102,40 +102,6 @@
   </view>
 
   <view class="form-el form-radio"><!-- form -->
-    <label class="tt">是否存在超过6个月以上的泌尿结石病史</label>
-    <radio-group class="form-radio-group" bindchange="bind_lithiasis_change">
-      <label wx:for="{{lithiasisOptions}}" wx:key="index">
-        <view class="ra">
-          <radio value="{{item}}" checked="{{item == patientLithiasis}}"/>
-        </view>
-        <view class="tx">{{item}}</view>
-      </label>
-    </radio-group>
-    <view class="form-inner-radio" wx:if="{{patientLithiasis == '是'}}">
-      <label class="tt">结石病类型</label>
-      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type1_change">
-        <label wx:for="{{lithiasisType1Options}}" wx:key="index">
-          <view class="ra">
-            <radio value="{{item}}" checked="{{item == patientLithiasisType1}}"/>
-          </view>
-          <view class="tx">{{item}}</view>
-        </label>
-      </radio-group>
-    </view>
-    <view class="form-inner-radio" wx:if="{{patientLithiasis == '是'}}">
-      <label class="tt">治疗情况</label>
-      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type2_change">
-        <label wx:for="{{lithiasisType2Options}}" wx:key="index">
-          <view class="ra">
-            <radio value="{{item}}" checked="{{item == patientLithiasisType2}}"/>
-          </view>
-          <view class="tx">{{item}}</view>
-        </label>
-      </radio-group>
-    </view>
-  </view>
-
-  <view class="form-el form-radio"><!-- form -->
     <label class="tt">目前最明显症状</label>
     <radio-group class="form-radio-group" bindchange="bind_symptom_change">
       <label wx:for="{{symptomOptions}}" wx:key="index">
@@ -146,7 +112,9 @@
       </label>
     </radio-group>
   </view>
-  <view class="form-el form-radio"><!-- form -->
+
+<!-- 
+  <view class="form-el form-radio">
     <label class="tt">目前最怀疑何种疾病</label>
     <radio-group class="form-radio-group" bindchange="bind_illness_change">
       <label wx:for="{{illnessOptions}}" wx:key="index">
@@ -157,6 +125,9 @@
       </label>
     </radio-group>
   </view>
+-->
+
+
   <!-- 验证表单 下一步 -->
   <view class="verify-next-button" data-topath="ques2family" bindtap="verify_to_next">下一页</view>
 </view>

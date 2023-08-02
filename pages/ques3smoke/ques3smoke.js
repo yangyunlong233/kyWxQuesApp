@@ -21,6 +21,13 @@ Page({
     edibleCount: '',
     statusOptions: ['从来不吸烟', '以前吸已经戒烟', '现在正在吸烟'],
     tfOptions: ['否', '是'],
+    lithiasis: '否',
+    lithiasisType1Options: [
+      "肾结石","输尿管结石","膀胱结石","肾和输尿管结石","肾和膀胱结石","输尿管和膀胱结石","都存在"
+    ],
+    lithiasisType2Options: [
+      "结石经过手术治疗","结石未经过手术治疗"
+    ],
     edibleOptions: [
       '从来不吃',
       '偶尔（每周<1次）',
@@ -58,6 +65,31 @@ Page({
       reInfection: e.detail.value
     })
   },
+  //! 是否有结石病事件
+  bind_lithiasis_change: function (e) {
+    if (e.detail.value == '否') {
+      this.setData({
+        lithiasis: e.detail.value,
+        lithiasisType1: '',
+        lithiasisType2: '',
+      })
+    } else {
+      this.setData({
+        lithiasis: e.detail.value
+      })
+    }
+  },
+  //! 结石病子选项事件
+  bind_lithiasis_type1_change: function (e) {
+    this.setData({
+      lithiasisType1: e.detail.value
+    })
+  },
+  bind_lithiasis_type2_change: function (e) {
+    this.setData({
+      lithiasisType2: e.detail.value
+    })
+  },
   //! 服用中药选择事件
   bind_chinese_medic_change: function (e) {
     this.setData({
@@ -77,6 +109,9 @@ Page({
     }
     if (this.data.smokeStatus == '现在正在吸烟' && this.data.smokeCount == '') {
       return this.toastCP.toast_show('请完善患者吸烟信息')
+    }
+    if (this.data.lithiasis == '是' && (!this.data.lithiasisType1 || !this.data.lithiasisType2)) {
+      return this.toastCP.toast_show('请选择结石病史情况')
     }
     this.save_to_global_handle()
     wx.navigateTo({
@@ -98,6 +133,9 @@ Page({
     _d.smokeCut = this.data.smokeCut
     _d.dangerTouch = this.data.dangerTouch
     _d.reInfection = this.data.reInfection
+    _d.lithiasis = this.data.lithiasis
+    _d.lithiasisType1 = this.data.lithiasisType1
+    _d.lithiasisType2 = this.data.lithiasisType2
     _d.chineseMedic = this.data.chineseMedic
     _d.edibleCount = this.data.edibleCount
     app.globalData.smokeData = _d
@@ -126,6 +164,9 @@ Page({
         smokeCut: app.globalData.smokeData.smokeCut,
         dangerTouch: app.globalData.smokeData.dangerTouch,
         reInfection: app.globalData.smokeData.reInfection,
+        lithiasis: app.globalData.smokeData.lithiasis,
+        lithiasisType1: app.globalData.smokeData.lithiasisType1,
+        lithiasisType2: app.globalData.smokeData.lithiasisType2,
         chineseMedic: app.globalData.smokeData.chineseMedic,
         edibleCount: app.globalData.smokeData.edibleCount
       })
@@ -134,6 +175,7 @@ Page({
         smokeStatus: this.data.statusOptions[0],
         dangerTouch: this.data.tfOptions[0],
         reInfection: this.data.tfOptions[0],
+        patientLithiasis: this.data.tfOptions[0],
         chineseMedic: this.data.tfOptions[0],
         edibleCount: this.data.edibleOptions[0]
       })
