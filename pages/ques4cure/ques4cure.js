@@ -42,7 +42,6 @@ Page({
       patientEducation     : app.globalData.patientData.patientEducation,
       patientProof         : app.globalData.patientData.patientProof,
       patientSymptom       : app.globalData.patientData.patientSymptom,
-      patientIllness       : app.globalData.patientData.patientIllness,
     }
     let _requestQues = {
       family: {
@@ -59,9 +58,9 @@ Page({
         smokeCut      : app.globalData.smokeData.smokeCut,
         dangerTouch   : app.globalData.smokeData.dangerTouch,
         reInfection   : app.globalData.smokeData.reInfection,
-        lithiasis     : app.globalData.smokeData.ithiasis,
-        lithiasisType1: app.globalData.smokeData.ithiasisType1,
-        lithiasisType2: app.globalData.smokeData.ithiasisType2,
+        lithiasis     : app.globalData.smokeData.lithiasis,
+        lithiasisType1: app.globalData.smokeData.lithiasisType1,
+        lithiasisType2: app.globalData.smokeData.lithiasisType2,
         chineseMedic  : app.globalData.smokeData.chineseMedic,
         edibleCount   : app.globalData.smokeData.edibleCount,
       },
@@ -70,6 +69,8 @@ Page({
         cure2                  : app.globalData.cureData.cure2,
       }
     }
+    console.log('_requestPersonal 病人信息',_requestPersonal)
+    console.log('_requestQues 问卷信息',_requestQues)
     wx.request({
       url: 'https://km2api.luoui.com/api/question/new',
       method: 'POST',
