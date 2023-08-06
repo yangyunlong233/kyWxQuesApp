@@ -13,6 +13,10 @@
   --ltgreen-2: rgba(50, 221, 108, .2);
   --ltgreen-25: rgba(50, 221, 108, .25);
   --dkgreen: rgba(91, 125, 103, 1);
+  --red: rgba(233, 49, 49, 1);
+  --red-2: rgba(233, 49, 49, .2);
+  --red-25: rgba(233, 49, 49, .25);
+  --dkred: rgba(185, 61, 61, 1);
 }
 
 .page {
@@ -123,6 +127,9 @@
   flex-flow: row wrap;
   align-items: center;
 }
+.form-radio-group label.ra-row {
+  width: 100%;
+}
 .form-radio-group label .ra {
   margin-right: .3rem;
 }
@@ -142,6 +149,10 @@
   margin-top: 2vh;
   padding-top: 2vh;
   border-top: 1rpx solid rgba(235,235,235, 1);
+}
+
+.form-inner-select {
+  margin-top: 3vh;
 }
 
 .form-inner-input {
@@ -165,6 +176,14 @@
   display: block;
   font-size: 1rem;
   color: var(--tblack);
+}
+.form-inner-input .short-tt {
+  width: 2rem;
+}
+.form-inner-input .input.short-input {
+  width: 4rem!important;
+  border-bottom: 1rpx solid var(--ublack-2);
+  text-align: center;
 }
 
 

@@ -1,1 +1,21 @@
 /* pages/ques4cure/ques4cure.wxss */
+
+.warning {
+  position: relative;
+  z-index: 2;
+  width: calc(86vw - 6vw - 2px);
+  padding: 3vw;
+  margin: 3vh auto 0;
+  font-size: .75rem;
+  text-align: justify;
+  background-color: var(--red-2);
+  border: 1rpx solid var(--red-25);
+  border-radius: .4rem;
+  color: var(--dkred);
+}
+.warning .icon {
+  position: relative;
+  display: inline-block;
+  width: .75rem;
+  margin-right: .2rem;
+}

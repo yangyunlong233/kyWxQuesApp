@@ -8,8 +8,8 @@ Page({
   data: {
     cure1: "",
     cure2: "",
-    cure1Options: ["切除膀胱+尿流改道", "保留膀胱的治疗"],
-    cure2Options: ["切除肾脏和输尿管", "保留肾脏和输尿管的治疗"],
+    cure1Options: ["切除膀胱+尿流改道", "保留膀胱的治疗", "无法确定"],
+    cure2Options: ["切除肾脏和输尿管", "保留肾脏和输尿管的治疗", "无法确定"],
   },
   //! 治疗方案1选择事件
   bind_cure_1_change: function (e) {
@@ -61,7 +61,7 @@ Page({
         lithiasis     : app.globalData.smokeData.lithiasis,
         lithiasisType1: app.globalData.smokeData.lithiasisType1,
         lithiasisType2: app.globalData.smokeData.lithiasisType2,
-        chineseMedic  : app.globalData.smokeData.chineseMedic,
+        lithiasisType3: app.globalData.smokeData.lithiasisType3,
         edibleCount   : app.globalData.smokeData.edibleCount,
       },
       cure: {

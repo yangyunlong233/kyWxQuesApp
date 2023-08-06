@@ -21,7 +21,7 @@
       </label>
     </radio-group>
     <view class="form-inner-radio" wx:if="{{smokeStatus == '以前吸已经戒烟' || smokeStatus == '现在正在吸烟'}}">
-      <label class="tt">每天几包烟</label>
+      <label class="tt">每天几支烟</label>
       <radio-group class="form-radio-group" bindchange="bind_smoke_count_change">
         <label wx:for="{{smokeCountOptions}}" wx:key="index">
           <view class="ra">
@@ -32,8 +32,9 @@
       </radio-group>
     </view>
     <view class="form-inner-input" wx:if="{{smokeStatus == '以前吸已经戒烟'}}">
-      <label class="tt">戒烟几年</label>
-      <input class="input" type="digit" model:value="{{smokeCut}}" placeholder="戒烟时长" bindinput="input_change_fallback"/>
+      <label class="tt short-tt">戒烟</label>
+      <input class="input short-input" type="digit" model:value="{{smokeCut}}" placeholder="多少" bindinput="input_change_fallback"/>
+      <p class="last-tt">年</p>
     </view>
   </view>
 
@@ -83,7 +84,7 @@
       </radio-group>
     </view>
     <view class="form-inner-radio" wx:if="{{lithiasis == '是'}}">
-      <label class="tt">治疗情况</label>
+      <label class="tt">结石病治疗情况</label>
       <radio-group class="form-radio-group" bindchange="bind_lithiasis_type2_change">
         <label wx:for="{{lithiasisType2Options}}" wx:key="index">
           <view class="ra">
@@ -93,9 +94,20 @@
         </label>
       </radio-group>
     </view>
+    <view class="form-inner-radio" wx:if="{{lithiasis == '是'}}">
+      <label class="tt">结石病史时间</label>
+      <radio-group class="form-radio-group" bindchange="bind_lithiasis_type3_change">
+        <label wx:for="{{lithiasisType3Options}}" wx:key="index">
+          <view class="ra">
+            <radio value="{{item}}" checked="{{item == lithiasisType3}}"/>
+          </view>
+          <view class="tx">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
   </view>
 
-  <view class="form-el form-radio"><!-- form -->
+  <!-- <view class="form-el form-radio">
     <label class="tt">是否长期服用中药？</label>
     <radio-group class="form-radio-group" bindchange="bind_chinese_medic_change">
       <label wx:for="{{tfOptions}}" wx:key="index">
@@ -105,7 +117,7 @@
         <view class="tx">{{item}}</view>
       </label>
     </radio-group>
-  </view>
+  </view> -->
 
   <view class="form-el form-radio"><!-- form -->
     <label class="tt">食用鱼腥草（折耳根）次数</label>

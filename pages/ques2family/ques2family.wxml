@@ -41,9 +41,14 @@
         <view class="tx">{{item}}</view>
       </label>
     </radio-group>
-    <view class="form-inner-input" wx:if="{{familyOtherIllness == '是'}}">
-      <label class="tt">恶性肿瘤名</label>
-      <input class="input" type="text" model:value="{{familyOtherIllnessName}}" placeholder="输入所患恶性肿瘤病名" bindinput="input_change_fallback"/>
+    <view class="form-input form-select form-inner-select" wx:if="{{familyOtherIllness == '是'}}">
+      <!-- <label class="tt">何种肿瘤</label> -->
+      <picker range="{{cancerOptions}}" bindchange="bind_family_other_illness_change" value="{{familyOtherIllnessName}}">
+        <view class="picker">
+            {{familyOtherIllnessName?familyOtherIllnessName:'请选择是何种恶性肿瘤'}}
+        </view>
+      </picker>
+      <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
     </view>
   </view>
   <view class="form-el form-radio"><!-- form -->
@@ -56,9 +61,14 @@
         <view class="tx">{{item}}</view>
       </label>
     </radio-group>
-    <view class="form-inner-input" wx:if="{{patientOtherIllness == '是'}}">
-      <label class="tt">恶性肿瘤名</label>
-      <input class="input" type="text" model:value="{{patientOtherIllnessName}}" placeholder="输入所患恶性肿瘤病名" bindinput="input_change_fallback"/>
+    <view class="form-input form-select form-inner-select" wx:if="{{patientOtherIllness == '是'}}">
+      <!-- <label class="tt">何种肿瘤</label> -->
+      <picker range="{{cancerOptions}}" bindchange="bind_patient_other_illness_change" value="{{patientOtherIllnessName}}">
+        <view class="picker">
+            {{patientOtherIllnessName?patientOtherIllnessName:'请选择是何种恶性肿瘤'}}
+        </view>
+      </picker>
+      <image class="icon" src="/assets/icon_form_select.svg" mode="widthFix" />
     </view>
   </view>
   <!-- 验证表单 下一步 -->

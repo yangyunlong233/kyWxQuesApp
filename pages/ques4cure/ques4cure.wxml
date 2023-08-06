@@ -10,10 +10,16 @@
     <text class="tt">治疗方案</text>
   </view>
 
+  <!-- 备注 -->
+  <view class="warning">
+    <image class="icon" src="../../assets/icon_warning.svg" mode="widthFix" />
+    <span>该选项仅用于问卷调查，与您实际的治疗方案无任何关联，如对治疗方案的描述或选择有疑问，请资讯泌尿外科医生。</span>
+  </view>
+
   <view class="form-el form-radio"><!-- form -->
     <label class="tt">如果您确诊了膀胱癌，需要切除您的膀胱并改变排尿方式，现在有新的治疗方案可以保留膀胱，而且不会降低生存时间、不会增加肿瘤进展和转移风险，但是会增加治疗费用、增加住院次数、需要做放疗和化疗并可能带来放疗和化疗相关的风险，您会选择哪种方案？</label>
     <radio-group class="form-radio-group" bindchange="bind_cure_1_change">
-      <label wx:for="{{cure1Options}}" wx:key="index">
+      <label class="ra-row" wx:for="{{cure1Options}}" wx:key="index">
         <view class="ra">
           <radio value="{{item}}" checked="{{item == cure1}}"/>
         </view>
@@ -25,7 +31,7 @@
   <view class="form-el form-radio"><!-- form -->
     <label class="tt">如果您确诊了输尿管癌或肾盂癌，需要切除您的一侧肾脏和输尿管，现在有新的治疗方案可以保留肾脏和输尿管，但存在肿瘤进展和转移的风险，并且会增加治疗费用、增加住院次数，您会选择哪种方案？</label>
     <radio-group class="form-radio-group" bindchange="bind_cure_2_change">
-      <label wx:for="{{cure2Options}}" wx:key="index">
+      <label class="ra-row" wx:for="{{cure2Options}}" wx:key="index">
         <view class="ra">
           <radio value="{{item}}" checked="{{item == cure2}}"/>
         </view>

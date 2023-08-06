@@ -15,6 +15,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ques2family/ques2family",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ques4cure/ques4cure",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

@@ -13,6 +13,35 @@ Page({
     patientOtherIllness: "",
     patientOtherIllnessName: "",
     illnessOptions: ["否", "是"],
+    cancerOptions: [
+      "鼻咽癌",
+      "白血病",
+      "唇和口腔恶性肿瘤",
+      "胆囊癌",
+      "肺癌",
+      "肝癌",
+      "睾丸癌",
+      "骨和关节恶性肿瘤",
+      "宫颈癌",
+      "黑色素瘤",
+      "喉癌",
+      "甲状腺癌",
+      "结直肠癌",
+      "间叶组织和软组织恶性肿瘤",
+      "淋巴瘤",
+      "卵巢癌",
+      "脑恶性肿瘤",
+      "前列腺癌",
+      "乳腺癌",
+      "肾癌",
+      "肾上腺恶性肿瘤",
+      "食管癌",
+      "胃癌",
+      "阴茎癌",
+      "胰腺癌",
+      "子宫内膜癌",
+      "其他",
+    ]
   },
   //! 家族一级亲属病史选择事件
   bind_f_Lv1_illness_history_change: function (e) {
@@ -28,23 +57,50 @@ Page({
   },
   //! 家族其他病史选择事件
   bind_f_other_illness_change: function (e) {
+    // 如果选否，清空肿瘤名称
+    if (e.detail.value == '否') {
+      this.setData({
+        familyOtherIllnessName: ''
+      })
+    }
     this.setData({
       familyOtherIllness: e.detail.value,
-    });
+    })
+    console.log(this.data.familyOtherIllnessName)
+  },
+  //! 家族其他病史 恶性肿瘤名称选择
+  bind_family_other_illness_change: function (e) {
+    this.setData({
+      familyOtherIllnessName: this.data.cancerOptions[e.detail.value]
+    })
+    console.log(this.data.familyOtherIllnessName)
   },
   //! 本人其他病史选择事件
   bind_p_other_illness_change: function (e) {
+    // 如果选否，清空肿瘤名称
+    if (e.detail.value == '否') {
+      this.setData({
+        patientOtherIllnessName: ''
+      })
+    }
     this.setData({
       patientOtherIllness: e.detail.value,
     })
   },
+  //! 本人其他病史 恶性肿瘤名称选择
+  bind_patient_other_illness_change: function (e) {
+    this.setData({
+      patientOtherIllnessName: this.data.cancerOptions[e.detail.value]
+    })
+    console.log(this.data.patientOtherIllnessName)
+  },
   //! 校验数据并到下一页
   verify_to_next: function (e) {
     if (this.data.familyOtherIllness == '是' && this.data.familyOtherIllnessName == '') {
-      return this.toastCP.toast_show('请填写亲属历史所患恶性肿瘤病名')
+      return this.toastCP.toast_show('请选择亲属历史所患恶性肿瘤病名')
     }
     if (this.data.patientOtherIllness == '是' && this.data.patientOtherIllnessName == '') {
-      return this.toastCP.toast_show('请填写本人历史所患恶性肿瘤病名')
+      return this.toastCP.toast_show('请选择本人历史所患恶性肿瘤病名')
     }
     this.save_to_global_handle()
     wx.navigateTo({

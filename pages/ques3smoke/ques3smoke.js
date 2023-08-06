@@ -17,16 +17,18 @@ Page({
     ],
     dangerTouch: '',
     reInfection: '',
-    chineseMedic: '',
     edibleCount: '',
     statusOptions: ['从来不吸烟', '以前吸已经戒烟', '现在正在吸烟'],
     tfOptions: ['否', '是'],
     lithiasis: '否',
     lithiasisType1Options: [
-      "肾结石","输尿管结石","膀胱结石","肾和输尿管结石","肾和膀胱结石","输尿管和膀胱结石","都存在"
+      "肾结石","输尿管结石","膀胱结石","肾和输尿管结石","肾和膀胱结石","输尿管和膀胱结石","肾、输尿管和膀胱结石"
     ],
     lithiasisType2Options: [
       "结石经过手术治疗","结石未经过手术治疗"
+    ],
+    lithiasisType3Options: [
+      "<1年","1年-2年",">2年","不清楚"
     ],
     edibleOptions: [
       '从来不吃',
@@ -72,6 +74,7 @@ Page({
         lithiasis: e.detail.value,
         lithiasisType1: '',
         lithiasisType2: '',
+        lithiasisType3: '',
       })
     } else {
       this.setData({
@@ -90,12 +93,17 @@ Page({
       lithiasisType2: e.detail.value
     })
   },
-  //! 服用中药选择事件
-  bind_chinese_medic_change: function (e) {
+  bind_lithiasis_type3_change: function (e) {
     this.setData({
-      chineseMedic: e.detail.value
+      lithiasisType3: e.detail.value
     })
   },
+  //! 服用中药选择事件
+  // bind_chinese_medic_change: function (e) {
+  //   this.setData({
+  //     chineseMedic: e.detail.value
+  //   })
+  // },
   //! 折耳根选择事件
   bind_edible_count_change: function (e) {
     this.setData({
@@ -110,7 +118,7 @@ Page({
     if (this.data.smokeStatus == '现在正在吸烟' && this.data.smokeCount == '') {
       return this.toastCP.toast_show('请完善患者吸烟信息')
     }
-    if (this.data.lithiasis == '是' && (!this.data.lithiasisType1 || !this.data.lithiasisType2)) {
+    if (this.data.lithiasis == '是' && (!this.data.lithiasisType1 || !this.data.lithiasisType2 || !this.data.lithiasisType3)) {
       return this.toastCP.toast_show('请选择结石病史情况')
     }
     this.save_to_global_handle()
@@ -136,7 +144,7 @@ Page({
     _d.lithiasis = this.data.lithiasis
     _d.lithiasisType1 = this.data.lithiasisType1
     _d.lithiasisType2 = this.data.lithiasisType2
-    _d.chineseMedic = this.data.chineseMedic
+    _d.lithiasisType3 = this.data.lithiasisType3
     _d.edibleCount = this.data.edibleCount
     app.globalData.smokeData = _d
     // console.log('-----------save', app.globalData.smokeData)
@@ -167,7 +175,7 @@ Page({
         lithiasis: app.globalData.smokeData.lithiasis,
         lithiasisType1: app.globalData.smokeData.lithiasisType1,
         lithiasisType2: app.globalData.smokeData.lithiasisType2,
-        chineseMedic: app.globalData.smokeData.chineseMedic,
+        lithiasisType3: app.globalData.smokeData.lithiasisType3,
         edibleCount: app.globalData.smokeData.edibleCount
       })
     } else { //! 全局没有数据，init data in ready
@@ -176,7 +184,6 @@ Page({
         dangerTouch: this.data.tfOptions[0],
         reInfection: this.data.tfOptions[0],
         patientLithiasis: this.data.tfOptions[0],
-        chineseMedic: this.data.tfOptions[0],
         edibleCount: this.data.edibleOptions[0]
       })
     }
