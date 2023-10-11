@@ -5,8 +5,9 @@
         "pages/ques2family/ques2family",
         "pages/ques4cure/ques4cure",
         "pages/ques3smoke/ques3smoke",
-        "pages/finished/finished"
-        
+        "pages/finished/finished",
+        "pages/user-services/user-services",
+        "pages/user-privacy/user-privacy"
     ],
     "window": {},
     "lazyCodeLoading": "requiredComponents",

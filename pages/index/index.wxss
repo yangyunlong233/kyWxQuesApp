@@ -60,7 +60,7 @@
   position: relative;
   z-index: 2;
   width: 70vw;
-  margin: 13vh auto 0;
+  margin: 12vh auto 0;
   padding: 1rem 0;
   border-radius: .8rem;
   background-color: var(--ltblue);
@@ -102,4 +102,20 @@
   font-size: .75rem;
   text-transform: uppercase;
   color: rgba(66, 80, 102, .7);
+}
+
+/* user-privacy */
+.user-privacy {
+  width: 80vw;
+  margin: 1.5rem auto 0rem;
+  text-align: center;
+}
+.user-privacy label {
+  font-size: .8rem;
+}
+.user-privacy checkbox {
+  transform: scale(.63) translateY(-.2rem);
+}
+.user-privacy span {
+  color: #2298D4;
 }
